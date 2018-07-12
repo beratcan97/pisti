@@ -146,7 +146,10 @@ function visualUpdate(){
     }
     
     //Updates visual player points
-    document.getElementById("playerPoints"). innerHTML = ("Points: " + playerPoints);
+    document.getElementById("playerPoints").innerHTML = ("Points: " + playerPoints);
+
+    //Updates visual robot points
+    document.getElementById("robotPoints").innerHTML = ("Points: " + robotPoints);
 }
 
 function updateMiddleCards(){
