@@ -135,13 +135,21 @@ function visualUpdate(){
     //Updates visual player cards
     var counter = 0;
     for(var card of playerCards){
-        document.getElementById("playerCard" + (counter + 1)).innerHTML = card;
+        // OLD system, can be removed
+        //document.getElementById("playerCard" + (counter + 1)).innerHTML = card;
+        //counter ++;
+
+        document.getElementById("playerCard" + (counter + 1) + "Img").src = ("cards/" + card + ".svg");
         counter ++;
     }
 
     var backCounter = 4;
     for (let i = 0; i < (4 - counter); i++) {
-        document.getElementById("playerCard" + backCounter).innerHTML = "x";
+        // OLD system, can be removed
+        //document.getElementById("playerCard" + backCounter).innerHTML = "x";
+        //backCounter--;
+
+        document.getElementById("playerCard" + (backCounter) + "Img").src = ("");
         backCounter--;
     }
     
@@ -154,10 +162,10 @@ function visualUpdate(){
 
 function updateMiddleCards(){
     if(middleCards[0] == null){
-        document.getElementById("middleCard").innerHTML = (winnerOfRound + " wins the round!");
+        document.getElementById("middleCardImg").src = "";
     }
     else {
-        document.getElementById("middleCard").innerHTML = middleCards.slice(-1)[0];
+        document.getElementById("middleCardImg").src = ("cards/" + (middleCards.slice(-1)[0]) + ".svg");
     }
 }
 

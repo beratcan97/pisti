@@ -11,7 +11,17 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.playerCards {
+.middleCardImg  {
+    width: 25vw;
+}
+.playerPointsContainer {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+.playerCardsContainer {
+    display: flex;
+    flex-direction: row;
+}
+.playerCard {
+    width: 25vw;
 }
