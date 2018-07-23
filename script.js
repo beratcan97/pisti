@@ -7,8 +7,6 @@ var winnerOfRound = "";
 var middleCards = [];
 var playerCards = [];
 var robotCards = [];
-//Create a function that finds the topcardinmiddle
-var topCardInMiddle = [];
 
 var playerTurn = true;
 
@@ -47,7 +45,7 @@ function robotPlays(){
     }
 
     //if the card is J then empty the middlecards and count the points
-    if (((cardValue == 37) || (cardValue == 38) || (cardValue == 39) || (cardValue == 40)) || (cardValue == topCardInMiddle)){
+    if (((cardValue == 37) || (cardValue == 38) || (cardValue == 39) || (cardValue == 40))){
         //counts the points
         for(var card of middleCards){
             //10 of diamonds is worth 3 point
@@ -78,7 +76,6 @@ function robotPlays(){
 
     updateMiddleCards();
 
-
     //gives turn to player
     playerTurn = true;
 }
@@ -98,7 +95,7 @@ function playerPlays(cardIndex) {
         }
 
         //if the card is J then empty the middlecards and count the points
-        if (((cardValue == 37) || (cardValue == 38) || (cardValue == 39) || (cardValue == 40)) || (cardValue == topCardInMiddle)){
+        if (((cardValue == 37) || (cardValue == 38) || (cardValue == 39) || (cardValue == 40))  /*|| (cardValue == middleCards.slice(-1)[0])*/){
             //counts the points
             for(var card of middleCards){
                 //10 of diamonds is worth 3 point
@@ -125,6 +122,9 @@ function playerPlays(cardIndex) {
         }
         //visual update
         visualUpdate();
+
+        //Tests if the game has ended
+        gameEnds();
 
         //Gives the turn to robot
         playerTurn = false;
@@ -180,6 +180,14 @@ function cardElements() {
     document.getElementById("playerCard2").addEventListener("click", function(){playerPlays(1)});
     document.getElementById("playerCard3").addEventListener("click", function(){playerPlays(2)});
     document.getElementById("playerCard4").addEventListener("click", function(){playerPlays(3)});
+}
+
+function gameEnds(){
+    if(playerCards[0] == undefined){
+        alert("gameEnds");
+
+        location.reload();
+    }
 }
 
 //Start the game
