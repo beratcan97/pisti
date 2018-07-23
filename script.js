@@ -73,7 +73,8 @@ function robotPlays(){
         //empty the middle cards
         middleCards.splice(0, middleCards.length);
     }
-
+    //visual update
+    visualUpdate();
 
     updateMiddleCards();
 
@@ -155,12 +156,13 @@ function visualUpdate(){
     
     //Updates visual player points
     document.getElementById("playerPoints").innerHTML = ("Points: " + playerPoints);
-
+    
     //Updates visual robot points
     document.getElementById("robotPoints").innerHTML = ("Points: " + robotPoints);
 }
 
 function updateMiddleCards(){
+    //Show the middle card on top if there  is one
     if(middleCards[0] == null){
         document.getElementById("middleCardImg").src = "";
     }
